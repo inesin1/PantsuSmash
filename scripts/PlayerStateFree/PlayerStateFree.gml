@@ -32,6 +32,8 @@ function PlayerStateFree(){
 	
 	//Attack
 	if (keyAttack) {
+		isHitboxCreated = false;
+		image_index = 0;
 		state = PlayerStateAttack;
 	}
 }

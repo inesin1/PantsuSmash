@@ -1,5 +1,3 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function PlayerStateJump(){
 	//Movement | Передвижение 
 	hsp = lengthdir_x(inputMagnitude * moveSpeed, inputDirection); //Вычисляем горизонтальную скорость (Сколько пикселей в каком направлении)
@@ -15,6 +13,10 @@ function PlayerStateJump(){
 	//Jump
 	y -= jump;
 	jump -= 0.5;
+	
+	//Anim
+	sprite_index = sPlayer2_Jump;
+	image_speed = 0;
 	
 	//Stop jump
 	if (collision_circle(x, y, 5, oPlayerShadow, false, true)) {

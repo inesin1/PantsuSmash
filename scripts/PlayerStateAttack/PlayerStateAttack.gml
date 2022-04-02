@@ -2,6 +2,7 @@ function PlayerStateAttack(){
 	hsp = 0;
 	vsp = 0;
 	
+	//Anim
 	sprite_index = sPlayer2_Attack;
 	image_speed = 1;
 	
@@ -20,12 +21,16 @@ function PlayerStateAttack(){
 	var hitboxX = lengthdir_x(len, dir) + playerCenterX;
 	var hitboxY = lengthdir_y(len, dir) + playerCenterY;
 	
-	var hitbox = instance_create_depth(hitboxX, hitboxY, depth, oHitBox);
-	hitbox.creator = id; 
-	hitbox.damage = 10;
+	if (!isHitboxCreated) {
+		hitbox = instance_create_layer(hitboxX, hitboxY, "Hitbox", oHitBox);
+		hitbox.creator = id; 
+		hitbox.damage = 10;
+		isHitboxCreated = true;
+	}
 
-	if (!keyAttack)
+	if (image_index >= image_number - 1)
 	{
+		instance_destroy(hitbox.id);
 		state = PlayerStateFree;
 	}
 }
