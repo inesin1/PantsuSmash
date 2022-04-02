@@ -1,0 +1,1 @@
+room_goto_dark(Title_L_Catacombs, 0.01);

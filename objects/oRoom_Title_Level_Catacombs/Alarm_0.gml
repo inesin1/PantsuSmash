@@ -1,0 +1,1 @@
+room_goto_dark(Menu_Main, 0.01);
